@@ -1,0 +1,22 @@
+{
+  "name": "kitchen-app",
+  "version": "0.0.1",
+  "description": "Kitchen app made as an interview project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwingCoder911/kitchen-app.git"
+  },
+  "keywords": [
+    "kitchen"
+  ],
+  "author": "Andrew Sunada <kaleb2azriel@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SwingCoder911/kitchen-app/issues"
+  },
+  "homepage": "https://github.com/SwingCoder911/kitchen-app#readme"
+}
