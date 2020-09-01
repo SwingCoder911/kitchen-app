@@ -1,10 +1,14 @@
 {
   "name": "kitchen-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Kitchen app made as an interview project",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mongo:setup": "mongod --dbpath=./data",
+    "test": "jest",
+    "start:api": "node app.js",
+    "start:socket": "node eventFileProcessor.js",
+    "start:test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,14 @@
   "bugs": {
     "url": "https://github.com/SwingCoder911/kitchen-app/issues"
   },
-  "homepage": "https://github.com/SwingCoder911/kitchen-app#readme"
+  "homepage": "https://github.com/SwingCoder911/kitchen-app#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.0"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
 }
