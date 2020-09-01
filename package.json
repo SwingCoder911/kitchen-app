@@ -1,14 +1,36 @@
 {
   "name": "kitchen-app",
   "version": "0.0.2",
-  "description": "Kitchen app made as an interview project",
-  "main": "app.js",
+  "author": "Andrew Sunada <kaleb2azriel@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SwingCoder911/kitchen-app/issues"
+  },
+  "homepage": "https://github.com/SwingCoder911/kitchen-app#readme",
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.0"
+  },
+  "devDependencies": {
+    "jest": "^26.4.2"
+  },
   "scripts": {
     "mongo:setup": "mongod --dbpath=./data",
-    "test": "jest",
     "start:api": "node app.js",
     "start:socket": "node eventFileProcessor.js",
-    "start:test": "node test.js"
+    "start:test": "node test.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -17,19 +39,19 @@
   "keywords": [
     "kitchen"
   ],
-  "author": "Andrew Sunada <kaleb2azriel@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SwingCoder911/kitchen-app/issues"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "homepage": "https://github.com/SwingCoder911/kitchen-app#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongodb": "^3.6.0"
-  },
-  "devDependencies": {
-    "jest": "^26.4.2"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
