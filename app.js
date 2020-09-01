@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const server = require('http').createServer(app);
 require('dotenv').config();
-const port = 3000;
+const port = 4000;
 
 // App requirements
 const EventRoutes = require('./src/api/routes/events.routes.js');

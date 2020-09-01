@@ -19,9 +19,6 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.0"
   },
-  "devDependencies": {
-    "jest": "^26.4.2"
-  },
   "scripts": {
     "mongo:setup": "mongod --dbpath=./data",
     "start:api": "node app.js",
