@@ -1,8 +1,6 @@
 import React from 'react';
 import { render, act } from '@testing-library/react';
 import EventForm from './event-form.component';
-import EventEngine from '../../libs/__mocks__/event-engine.lib';
-const eventEngine = new EventEngine();
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

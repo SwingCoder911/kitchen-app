@@ -53,7 +53,6 @@ export default class EventService {
       }
       return eventData.map((event) => new Event(event));
     } catch (e) {
-      console.log('getevents error: ', e);
       throw new Error(e.message);
     }
   }

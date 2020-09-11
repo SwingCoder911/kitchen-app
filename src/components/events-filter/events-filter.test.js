@@ -1,11 +1,7 @@
 import React from 'react';
-import { render, act } from '@testing-library/react';
-import Event from '../../models/event.model';
+import { render } from '@testing-library/react';
 import EventsFilter from './events-filter.component';
-import EventEngine from '../../libs/__mocks__/event-engine.lib';
-import { basicMock } from '../../api/test/events.mock';
-const eventEngine = new EventEngine();
-// console.log('found eventEngine: ', eventEngine);
+
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useLocation: () => ({

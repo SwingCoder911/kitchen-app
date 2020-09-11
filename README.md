@@ -131,3 +131,5 @@ This is where all the string and configurations belong for the engine and for th
 4. It would be nice to have the socket event queuer be placed in the serviceWorker and a space be given for consuming data via a file or stream.
 5. It would have been nice to create a swagger doc for the api
 6. I can tell there's some speed eat up in the browser. Had I had more time, I might search and try to find a memory/socket leak as well.
+7. I would have handled error logging on the client side more specifically and intentionally. I often like to try to include error messaging like `[Error: ExampleComponent] error message`
+8. I would have liked the time to go through and confirm each possible error state in the components, have that state tested and handled

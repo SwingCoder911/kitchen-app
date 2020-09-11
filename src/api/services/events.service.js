@@ -52,7 +52,7 @@ class EventsService {
       }
       return new Event(found, { fromMongo: true });
     } catch (e) {
-      console.log('found error: ', e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
@@ -67,7 +67,7 @@ class EventsService {
       const found = await this.db.findEvents(eventIds);
       return found.map((event) => new Event(event, { fromMongo: true }));
     } catch (e) {
-      console.log('found error: ', e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
@@ -86,7 +86,7 @@ class EventsService {
       }
       return new Event(found, { fromMongo: true });
     } catch (e) {
-      console.log('found error: ', e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
@@ -126,7 +126,7 @@ class EventsService {
       }
       return true;
     } catch (e) {
-      console.log(e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
@@ -146,7 +146,7 @@ class EventsService {
       foundEvent.updateEventData(data);
       return await this.findAndUpdateEvent(id, foundEvent);
     } catch (e) {
-      console.log(e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
@@ -165,7 +165,7 @@ class EventsService {
       }
       return await this.findEvent(createdId);
     } catch (e) {
-      console.log('found error: ', e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
@@ -182,7 +182,7 @@ class EventsService {
       );
       return eventList.sort(Event.sortEventList);
     } catch (e) {
-      console.log('found error: ', e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
@@ -199,7 +199,7 @@ class EventsService {
       );
       return eventList.sort(Event.sortEventList);
     } catch (e) {
-      console.log('found error: ', e.message);
+      console.log('EventsService error: ', e.message);
       throw new Error(e.message);
     }
   }
