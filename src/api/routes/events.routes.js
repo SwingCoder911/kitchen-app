@@ -9,5 +9,5 @@ router.post('/create', EventsController.createEvent);
 router.post('/:id', EventsController.updateEvent);
 router.post('/', EventsController.postEvents);
 router.get('/', EventsController.getActiveEvents);
-router.get('/historical', EventsController.getHistoricalEvents);
+router.get('/processed', EventsController.getProcessedEvents);
 module.exports = router;

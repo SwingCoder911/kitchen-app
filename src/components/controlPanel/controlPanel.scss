@@ -1,3 +1,5 @@
+@import '../../shared/styles/variables';
+
 .control-panel {
   display: flex;
   flex-direction: row;
@@ -8,8 +10,8 @@
     padding: 2em;
   }
   &.completed {
-    background: #32d296;
-    color: #fff;
+    background: $success;
+    color: $white;
   }
   .message {
     text-align: center;
@@ -17,18 +19,15 @@
   &__button {
     margin: 0 1em;
     &--begin {
-      color: white;
-      background: #32d296;
-      border: 1px solid #32d296;
+      color: $white;
+      background: $success;
+      border: 1px solid $success;
     }
-    // &--pause {
-    //   background: #32f324;
-    //   border: 1px solid #32f324;
-    // }
+
     &--stop {
-      color: white;
-      background: #f37e24;
-      border: 1px solid #f37e24;
+      color: $white;
+      background: $alert;
+      border: 1px solid $alert;
     }
   }
 }

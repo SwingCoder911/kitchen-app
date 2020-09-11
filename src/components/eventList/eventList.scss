@@ -1,3 +1,5 @@
+@import '../../shared/styles/variables';
+
 .layout {
   display: flex;
   flex-direction: row;
@@ -29,16 +31,16 @@
     padding: 0.5em 1em;
     text-align: right;
     &.complete {
-      background: #edfbf6;
-      color: #32d296;
+      background: $success-bg;
+      color: $success;
     }
     &.cancelled {
-      background: #fef4f6;
-      color: #f0506e;
+      background: $alert-bg;
+      color: $alert;
     }
     &.pending {
-      background: #d8eafc;
-      color: #1e87f0;
+      background: $standard-bg;
+      color: $standard;
     }
   }
   &__destination {

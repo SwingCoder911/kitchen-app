@@ -1,7 +1,9 @@
+@import '../../shared/styles/variables';
+
 .events-filter {
   margin-bottom: 0.5em;
 
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid $gray;
 
   &__initial {
     display: flex;

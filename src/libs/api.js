@@ -64,7 +64,7 @@ export default class API {
   }
   static async getProcessedEvents() {
     try {
-      const response = await fetch('/api/events/historical');
+      const response = await fetch('/api/events/processed');
       if (response.status === 404) {
         return [];
       }
