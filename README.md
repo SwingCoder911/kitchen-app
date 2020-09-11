@@ -26,6 +26,7 @@ This is a small app simulating a food order processor. This was built as an inte
 
 - Install mongodb `./install.sh`
 - Install npm `npm install`
+- Setup env `cp .env.development .env`
 
 2. Run app
 

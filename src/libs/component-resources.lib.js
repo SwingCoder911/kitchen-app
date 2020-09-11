@@ -1,7 +1,7 @@
 /**
  * Set of shared resources for components
  */
-import { configMap, configList } from '../event.config';
+import { configMap, configList } from '../configs/event.config';
 export const eventNameConfig = configList.reduce((acc, eventName) => {
   acc[eventName] = {
     styleClass: configMap[eventName].styleClass,

@@ -1,6 +1,6 @@
 import Event from './event.model';
 import { externalMock, singleMock } from '../test/mocks/events.mock';
-import { configMap } from '../event.config';
+import { configMap } from '../configs/event.config';
 describe('Event', () => {
   it('should construct', () => {
     const newEvent = new Event(singleMock);

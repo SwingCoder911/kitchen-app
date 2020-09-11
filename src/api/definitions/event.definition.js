@@ -1,4 +1,4 @@
-const { configList } = require('../../event.config');
+const { configList } = require('../../configs/event.config');
 /**
  * Class: Event
  * This class is meant to define and handle all the event object operations

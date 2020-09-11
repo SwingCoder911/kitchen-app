@@ -1,4 +1,4 @@
-import { configMap } from '../event.config';
+import { configMap } from '../configs/event.config';
 /**
  * Class: Event
  * Client side event model
