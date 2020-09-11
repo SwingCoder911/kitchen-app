@@ -84,8 +84,8 @@ I broke up the app into components that made sense to me to break it down to. I 
 
 #### Libs
 
-Normally I like to have several different types of external functionalities: services, engine, utils, apis. However, I didn't have enough functionality to cover all the things I wanted. I also am a stickler on nameing. This project includes dot notation as well as camel casing.
-Note: I use dot notation to separate library type from library name. I use camelcase for multiple words in a file.
+Normally I like to have several different types of external functionalities: services, engine, utils, apis. However, I didn't have enough functionality to cover all the things I wanted. I also am a stickler on nameing. This project includes dot notation as well as kebab casing.
+Note: I use dot notation to separate library type from library name. I use kebab for multiple words in a file.
 
 #### Models
 
