@@ -121,3 +121,12 @@ This is where all the string and configurations belong for the engine and for th
   I chose this for routing because it provides enough abstracted functionality that provides smooth path routing that I felt it was usefull
 - react-scripts:
   I chose this create react framework because it's a helpful boiler plate templater to give me what I need as fast as I need it. I might not use it for more full enterprise solutions. Or I might use it, then unmount it so that I can bring in higher levels of customization if I ever need it.
+
+## Places to Improve
+
+1. I would have loved to include an interface with the map api https://docs.mapbox.com/mapbox.js/api/v3.3.1/. This would have been super cool and if I had more time to dive into it it would have been a nice bit of extra UI functionality that would have significantly increased the feature quality on this app.
+2. There's a lot of extra time and effort that could be put into more unit testing. I tested the pieces I found helpful on the server side, and there's a lot more unit testing that could be done to ensure the highest levels of robustness in this code.
+3. It would be nice to include css modules.
+4. It would be nice to have the socket event queuer be placed in the serviceWorker and a space be given for consuming data via a file or stream.
+5. It would have been nice to create a swagger doc for the api
+6. I can tell there's some speed eat up in the browser. Had I had more time, I might search and try to find a memory/socket leak as well.
