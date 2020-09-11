@@ -1,0 +1,47 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.75em 1em;
+  &__primary {
+    display: flex;
+    flex-direction: column;
+  }
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.event {
+  margin: 1em 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &__title {
+    text-align: left;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+  &__label {
+    padding: 0.5em 1em;
+    text-align: right;
+    &.complete {
+      background: #edfbf6;
+      color: #32d296;
+    }
+    &.cancelled {
+      background: #fef4f6;
+      color: #f0506e;
+    }
+    &.pending {
+      background: #d8eafc;
+      color: #1e87f0;
+    }
+  }
+  &__destination {
+    text-align: left;
+  }
+}

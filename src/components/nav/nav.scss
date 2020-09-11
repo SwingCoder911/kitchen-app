@@ -1,0 +1,12 @@
+.nav {
+  margin: 1em;
+  .uk-tab {
+    &::before {
+      border: none;
+    }
+
+    & > li > a {
+      padding: 0.5em;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.event-form-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1;
+
+  .event-form {
+    margin: 7em auto 0 auto;
+    width: 40vw;
+
+    &__row {
+      margin: 1em 0;
+    }
+  }
+}
+
+.submit-button {
+  width: 100%;
+}

@@ -1,0 +1,52 @@
+.events-filter {
+  margin-bottom: 0.5em;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  &__initial {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+
+    .filter-area {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      .filter-button:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+  }
+  .advanced {
+    margin: 0.75em 0;
+  }
+}
+
+.filter-reset {
+  margin-left: 0.5em;
+}
+
+.filter-button {
+  margin: 0 0.5em;
+}
+
+.since-cooked {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 1em;
+
+  &__value {
+    width: 3em;
+    margin: 0.5em 0.5em 0.5em 0;
+    padding: 0.25em;
+    height: 1.5em;
+  }
+}

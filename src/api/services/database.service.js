@@ -1,4 +1,4 @@
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient, ObjectId } = require('mongodb');
 
 /**
  * Class: DatabaseService
@@ -10,6 +10,9 @@ class DatabaseService {
   constructor() {
     this.collection = null;
   }
+  /**
+   * Create and setup the mongo connection
+   */
   init() {
     return new Promise((res, rej) => {
       MongoClient.connect(process.env.MONGO_ENDPOINT, {
@@ -27,6 +30,12 @@ class DatabaseService {
         });
     });
   }
+
+  /**
+   * Method: updateEventsEventName
+   * Update the eventNames and eventTimes of a collection of events
+   * @param {[events]} events
+   */
   async updateEventsEventName(events) {
     if (!events.length) {
       return null;
@@ -38,7 +47,7 @@ class DatabaseService {
             _id: event.id,
           },
           {
-            $set: { eventName: event.eventName },
+            $set: { eventName: event.eventName, eventTime: event.eventTime },
           }
         )
       );
@@ -48,6 +57,12 @@ class DatabaseService {
       throw new Error(e.message);
     }
   }
+
+  /**
+   * Method: findEvents
+   * Get set of events from the database based on a list of ids
+   * @param {[number]} ids
+   */
   async findEvents(ids) {
     if (!ids.length) {
       return [];
@@ -56,7 +71,7 @@ class DatabaseService {
       return await this.collection
         .find({
           _id: {
-            $in: ids,
+            $in: ids.map((id) => id),
           },
         })
         .toArray();
@@ -64,6 +79,11 @@ class DatabaseService {
       throw new Error(e.message);
     }
   }
+  /**
+   * Method: findEvent
+   * Get event object from the databased using the id
+   * @param {number} id
+   */
   async findEvent(id) {
     if (!id) {
       return null;
@@ -76,32 +96,67 @@ class DatabaseService {
       throw new Error(e.message);
     }
   }
+
+  /**
+   * Method: findAndUpdateEvent
+   * Find an event by id if it exists, then update it.
+   * @param {number} id
+   * @param {event} data
+   */
   async findAndUpdateEvent(id, data) {
     if (!id || !data) {
       return null;
     }
     try {
-      return await this.collection.findOneAndUpdate(
+      const { value: found } = await this.collection.findOneAndUpdate(
         { _id: id },
         { $set: data },
         { returnOriginal: false }
       );
+      return found;
     } catch (e) {
       throw new Error(e.message);
     }
   }
+
+  /**
+   * Method: insertEvents
+   * Get a series of new event objects and add them all to the database
+   * @param {[events]} events
+   */
   async insertEvents(events) {
     if (!events.length) {
       return null;
     }
     try {
-      return await this.collection.insertMany(
-        events.map((event) => event.getMongoJSON())
-      );
+      return await this.collection.insertMany(events);
     } catch (e) {
       throw new Error(e.message);
     }
   }
+
+  /**
+   * Method: createEvent
+   * Create a new event in the database and return the created object
+   * @param {event} event
+   */
+  async createEvent(event) {
+    if (!event) {
+      return null;
+    }
+    try {
+      const { insertedId } = await this.collection.insertOne(event);
+      return ObjectId(insertedId);
+    } catch (e) {
+      throw new Error(e.message);
+    }
+  }
+
+  /**
+   * Method: getEventsByEventNames
+   * Get a set of events by their eventNames
+   * @param {[string]} eventNames
+   */
   async getEventsByEventNames(eventNames) {
     if (!eventNames.length) {
       return null;

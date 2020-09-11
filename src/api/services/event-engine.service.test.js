@@ -73,6 +73,10 @@ describe('EventEngineService', () => {
     });
   });
 
+  describe('getState', () => {
+    // TODO: Implement this
+  });
+
   describe('runEventEngine', () => {
     const basicHighest = getHighestSend(basicMock);
     const duplicatesHighest = getHighestSend(duplicatesMock);

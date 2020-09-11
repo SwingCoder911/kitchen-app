@@ -1,7 +1,14 @@
 const HttpHandler = require('../handlers/http.handler');
 const EventsService = require('../services/events.service');
 const eventsService = new EventsService();
-eventsService.init();
+eventsService
+  .init()
+  .then(() => {
+    console.log('Successfully started EventEervice');
+  })
+  .catch((error) => {
+    console.log('Failed to launch eventService: ', error);
+  });
 /**
  * Controller for all events functionality
  */
@@ -27,11 +34,27 @@ class EventsController {
 
   /**
    * POST: /events/
+   * data: event
+   * Receive event set
+   */
+  static async createEvent(req, res) {
+    try {
+      const createdEvent = await eventsService.createEvent(req.body);
+      HttpHandler.sendResultObject(res, createdEvent);
+    } catch (e) {
+      HttpHandler.error(res, e);
+    }
+  }
+
+  /**
+   * POST: /events/
+   * data: [event]
    * Receive event set
    */
   static async postEvents(req, res) {
     try {
       const { events } = req.body;
+
       await eventsService.queueEvents(events);
       HttpHandler.success(res);
     } catch (e) {
@@ -46,10 +69,6 @@ class EventsController {
   static async getActiveEvents(req, res) {
     try {
       const events = await eventsService.getActiveOrders();
-      if (!events.length) {
-        HttpHandler.noResults(res, 'events');
-        return;
-      }
       HttpHandler.sendResultList(res, events);
     } catch (e) {
       HttpHandler.error(res, e);
@@ -57,16 +76,12 @@ class EventsController {
   }
 
   /**
-   * GET: /events/historical
-   * Show historical events
+   * GET: /events/processed
+   * Show processed events
    */
-  static async getHistoricalEvents(req, res) {
+  static async getProcessedEvents(req, res) {
     try {
-      const events = await eventsService.getHistoricalOrders();
-      if (!events.length) {
-        HttpHandler.noResults(res, 'events');
-        return;
-      }
+      const events = await eventsService.getProcessedOrders();
       HttpHandler.sendResultList(res, events);
     } catch (e) {
       HttpHandler.error(res, e);

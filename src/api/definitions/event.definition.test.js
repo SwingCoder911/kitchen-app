@@ -7,20 +7,6 @@ describe('Event', () => {
     expect(newEvent).toBeInstanceOf(Event);
   });
 
-  it('should construct with fromExternal', () => {
-    const newEvent = new Event(
-      {
-        id: singleMock.id,
-        name: singleMock.name,
-        destination: singleMock.destination,
-        event_name: singleMock.event_name,
-      },
-      { fromExternal: true }
-    );
-    expect(newEvent).toBeInstanceOf(Event);
-    expect(newEvent.eventName).toEqual(singleMock.event_name);
-  });
-
   it('should construct with fromMongo', () => {
     const newEvent = new Event(
       {

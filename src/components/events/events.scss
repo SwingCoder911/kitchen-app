@@ -1,0 +1,13 @@
+.events {
+  height: 100%;
+
+  .events-container {
+    min-height: 36em;
+    max-height: 90%;
+    overflow: scroll;
+  }
+}
+
+.empty-list {
+  margin: 15vh 0;
+}

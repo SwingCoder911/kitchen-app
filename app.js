@@ -8,7 +8,7 @@ const port = 4000;
 
 // App requirements
 const EventRoutes = require('./src/api/routes/events.routes.js');
-const EventsServiceController = require('./src/api/routes/events-engine.routes.js')(
+const EventsEngineRoutes = require('./src/api/routes/events-engine.routes.js')(
   server
 );
 
@@ -16,13 +16,8 @@ const EventsServiceController = require('./src/api/routes/events-engine.routes.j
 app.use(bodyParser.json());
 
 // API definitions
-app.use('/events', EventRoutes);
-app.use('/events-service', EventsServiceController);
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
+app.use('/api/events', EventRoutes);
+app.use('/api/events-engine', EventsEngineRoutes);
 server.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
