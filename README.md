@@ -97,15 +97,27 @@ Mostly this is where all the shared stuff would go including images if they exis
 
 #### Configs
 
-This is where all the string and configurations belong for the engine and for the evetns
+This is where all the string and configurations belong for the engine and for the events
 
-## Notes
+## Dependencies
 
-Create scripts for this!
-mongod --dbpath=/data
-brew install mongodb-community@4.4
-brew services start mongodb-community@4.4
-brew services stop mongodb-community@4.4
-mongod --dbpath=./data --config /usr/local/etc/mongod.conf --fork
-ps aux | grep -v grep | grep mongod
-npm test -- --coverage --watchAll=false
+- body-parser:
+  Library to deliver the body content from a post request to the server. I chose this because it was the most commented and documented library and most easily usable library for getting body content from the server.
+- express:
+  I chose expressjs because it's the one i'm most familiar with and it has a bit of a higher level of abstraction that I prefer than simply using server
+- dotenv:
+  Since react-scripts has it's own form of using the .env file, this is specifically for jest. This is the most common library I've used for separate .env config handling.
+- @testing-library:
+  I chose this over enzyme because although enzyme is more fully featured, this one was already part of the library and it's simpler for my needs. If I can help it, I usually like to go with the library that's closest to the actual framework I'm using if it has enough fetures for me.
+- classnames:
+  This is a simple utility library I use for getting class names and passing them to the dom. I could definitely write my own, but this is one of those cases where it's just faster to use this and it's been around long enough that I trust it.
+- mongodb:
+  I used mongodb because it was the simplest database and it was an actual database rather than just using a cache service
+- node-sass:
+  I chose to go with scss because I prefer writing code in scss rather than pure css. That might change if I ever go with css modules
+- react:
+  I chose react because I'm currently using react in my other projects and I wanted to use Hooks
+- react-router-dom:
+  I chose this for routing because it provides enough abstracted functionality that provides smooth path routing that I felt it was usefull
+- react-scripts:
+  I chose this create react framework because it's a helpful boiler plate templater to give me what I need as fast as I need it. I might not use it for more full enterprise solutions. Or I might use it, then unmount it so that I can bring in higher levels of customization if I ever need it.
