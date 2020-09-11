@@ -125,7 +125,6 @@ class EventEngineService {
         return;
       }
       if (i > this.lastEvent) {
-        console.log('Completed processing all events');
         this.socket.emit(EventEngineService.SOCKET_EVENT_COMPLETE);
         this.state = EventEngineService.ENGINE_STATES.COMPLETED;
         clearInterval(this.eventIntervalTicker);

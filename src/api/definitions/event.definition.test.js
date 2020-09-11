@@ -27,6 +27,7 @@ describe('Event', () => {
         eventName: Event.EVENT_NAMES.CANCELLED,
         destination: 'destination',
         name: 'name',
+        eventTime: 0,
       };
       const newEvent = new Event(singleMock);
       newEvent.updateEventData(updateable);
@@ -48,8 +49,12 @@ describe('Event', () => {
         const updateable = new Event({
           ...singleMock,
           eventName,
+          eventTime: singleMock.sent_at_second,
         });
-        const newEvent = new Event(singleMock, { fromExternal: true });
+        const newEvent = new Event({
+          ...singleMock,
+          eventName: singleMock.event_name,
+        });
         expect(newEvent.eventName).toEqual(singleMock.event_name);
         newEvent.updateEventNameFromEvent(updateable);
         expect(newEvent.eventName).toEqual(eventName);

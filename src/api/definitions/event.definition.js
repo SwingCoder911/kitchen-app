@@ -58,6 +58,9 @@ class Event {
     if (data.destination !== undefined) {
       this.destination = data.destination;
     }
+    if (data.name !== undefined) {
+      this.name = data.name;
+    }
     if (
       data.eventName !== undefined &&
       Event.EVENT_NAMES[data.eventName] !== undefined

@@ -28,16 +28,19 @@ describe('EventEngineService', () => {
     expect(newService).toBeInstanceOf(EventEngineService);
   });
   describe('init', () => {
-    it('construct should set a listener on socket connection', () => {
-      let onCalled = false;
+    it('should set a listener on socket connection', async () => {
+      const newOn = jest.fn((event, fn) => {
+        fn({
+          on: jest.fn(),
+          emit: jest.fn(),
+        });
+      });
       const newService = new EventEngineService({
         ...ioMock,
-        on: (event, callback) => {
-          onCalled = event === 'connection';
-        },
+        on: newOn,
       });
-      newService.init();
-      expect(onCalled).toBeTruthy();
+      await newService.init();
+      expect(newOn).toHaveBeenCalledTimes(1);
     });
   });
   describe('initEvents', () => {
@@ -80,21 +83,46 @@ describe('EventEngineService', () => {
   describe('runEventEngine', () => {
     const basicHighest = getHighestSend(basicMock);
     const duplicatesHighest = getHighestSend(duplicatesMock);
-
+    beforeEach(() => {
+      jest.useFakeTimers();
+      jest.clearAllMocks();
+    });
     it(`should have called io.emit ${basicHighest} times`, async () => {
-      const newService = new EventEngineService(ioMock);
+      const newSocket = {
+        on: jest.fn(),
+        emit: jest.fn(),
+      };
+      const newOn = jest.fn((event, fn) => {
+        fn(newSocket);
+      });
+      const newService = new EventEngineService({
+        ...ioMock,
+        on: newOn,
+      });
+      await newService.init();
       newService.initEvents(basicMock);
       newService.runEventEngine();
       jest.advanceTimersByTime(4000);
-      expect(ioMock.emit).toHaveBeenCalledTimes(basicHighest);
+      expect(newSocket.emit).toHaveBeenCalledTimes(basicHighest + 4);
     });
 
     it(`should have called io.emit ${duplicatesHighest} times with duplicates`, async () => {
-      const newService = new EventEngineService(ioMock);
+      const newSocket = {
+        on: jest.fn(),
+        emit: jest.fn(),
+      };
+      const newOn = jest.fn((event, fn) => {
+        fn(newSocket);
+      });
+      const newService = new EventEngineService({
+        ...ioMock,
+        on: newOn,
+      });
+      await newService.init();
       newService.initEvents(duplicatesMock);
       newService.runEventEngine();
       jest.advanceTimersByTime(4000);
-      expect(ioMock.emit).toHaveBeenCalledTimes(duplicatesHighest);
+      expect(newSocket.emit).toHaveBeenCalledTimes(duplicatesHighest + 4);
     });
   });
 });

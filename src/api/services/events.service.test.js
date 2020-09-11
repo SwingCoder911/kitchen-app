@@ -8,4 +8,5 @@ describe('EventsService', () => {
   it('should be constructed', () => {
     expect(new EventsService()).toBeInstanceOf(EventsService);
   });
+  describe('mergeEventStates', () => {});
 });

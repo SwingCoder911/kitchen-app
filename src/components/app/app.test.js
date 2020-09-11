@@ -1,9 +1,31 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './app';
+import { render, act } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './app.component';
+import EventEngine from '../../libs/__mocks__/event.engine';
+const eventEngine = new EventEngine();
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useLocation: () => ({
+    pathname: 'localhost:3000/active',
+    useHistory: () => ({}),
+  }),
+}));
+
+describe('<App/>', () => {
+  describe('Add event button', () => {
+    it('should exist', async () => {
+      const promise = Promise.resolve();
+      eventEngine.getState = jest.fn(() => promise);
+      const { getByText } = render(
+        <Router>
+          <App eventEngine={eventEngine} />
+        </Router>
+      );
+      const addButton = getByText('Add Event');
+      expect(addButton).toBeInTheDocument();
+      await act(() => promise);
+    });
+  });
 });

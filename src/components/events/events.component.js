@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import className from 'classnames';
 import EventService from '../../libs/event.service';
 import EventsFilter from '../eventsFilter/eventsFilter.component';
 import EventForm from '../eventForm/eventForm.component';
@@ -85,7 +86,7 @@ export default function Events({ eventEngine, getEvents, showFilters }) {
     handleGetEvents();
   }, [getEvents, eventEngine, events, currentPath, error]);
   return (
-    <div className="events">
+    <div className={className({ events: true, 'with-filters': showFilters })}>
       {showFilters ? <EventsFilter updateFilter={updateFilter} /> : ''}
       {editEnabled ? (
         <EventForm

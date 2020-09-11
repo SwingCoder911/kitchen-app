@@ -1,9 +1,16 @@
 .events {
   height: 100%;
 
+  &.with-filters {
+    .events-container {
+      min-height: 36em;
+      max-height: 90%;
+      overflow: scroll;
+    }
+  }
   .events-container {
     min-height: 36em;
-    max-height: 90%;
+    max-height: 100%;
     overflow: scroll;
   }
 }
