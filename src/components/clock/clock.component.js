@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { configDisplayMap } from '../../engine.config';
+import { configDisplayMap } from '../../configs/engine.config';
 import './clock.scss';
 
 /**

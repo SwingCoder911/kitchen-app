@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import className from 'classnames';
-import { configMap } from '../../engine.config';
+import { configMap } from '../../configs/engine.config';
 import './control-panel.scss';
 
 /**

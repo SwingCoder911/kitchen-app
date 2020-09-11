@@ -1,5 +1,5 @@
 const getFileData = require('../utils/getFileData');
-const { configMap } = require('../../engine.config');
+const { configMap } = require('../../configs/engine.config');
 
 /**
  * Class: EventEngineService
