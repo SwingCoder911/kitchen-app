@@ -2,7 +2,7 @@ import React from 'react';
 import { render, act } from '@testing-library/react';
 import { configMap } from '../../engine.config';
 import Clock from './clock.component';
-import EventEngine from '../../libs/__mocks__/event.engine';
+import EventEngine from '../../libs/__mocks__/event-engine.lib';
 const eventEngine = new EventEngine();
 
 jest.mock('react-router-dom', () => ({

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import className from 'classnames';
-import EventService from '../../libs/event.service';
-import EventsFilter from '../eventsFilter/eventsFilter.component';
-import EventForm from '../eventForm/eventForm.component';
-import EventList from '../eventList/eventList.component';
+import EventService from '../../libs/event-service.lib';
+import EventsFilter from '../events-filter/events-filter.component';
+import EventForm from '../event-form/event-form.component';
+import EventList from '../event-list/event-list.component';
 import {
   compareEventLists,
   defaultFilters,
   getFilteredList,
-} from '../../libs/componentResources';
-import { getCurrentPath } from '../../libs/utils';
+} from '../../libs/component-resources.lib';
+import { getCurrentPath } from '../../libs/utils.lib';
 
 import './events.scss';
 

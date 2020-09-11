@@ -1,7 +1,7 @@
 import React from 'react';
 import className from 'classnames';
-import { eventNameConfig } from '../../libs/componentResources';
-import './eventList.scss';
+import { eventNameConfig } from '../../libs/component-resources.lib';
+import './event-list.scss';
 
 /**
  * Component: EventList

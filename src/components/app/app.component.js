@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { getCurrentPath } from '../../libs/utils';
+import { getCurrentPath } from '../../libs/utils.lib';
 import Nav from '../nav/nav.component';
-import ControlPanel from '../controlPanel/controlPanel.component';
+import ControlPanel from '../control-panel/control-panel.component';
 import Clock from '../clock/clock.component';
-import EventForm from '../eventForm/eventForm.component';
+import EventForm from '../event-form/event-form.component';
 import Routes from '../routes/routes.component';
-import EventService from '../../libs/event.service';
+import EventService from '../../libs/event-service.lib';
 import './app.scss';
 
 const tabs = [

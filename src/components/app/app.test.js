@@ -3,7 +3,7 @@ import { render, act } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { configMap } from '../../engine.config';
 import App from './app.component';
-import EventEngine from '../../libs/__mocks__/event.engine';
+import EventEngine from '../../libs/__mocks__/event-engine.lib';
 const eventEngine = new EventEngine();
 
 jest.mock('react-router-dom', () => ({

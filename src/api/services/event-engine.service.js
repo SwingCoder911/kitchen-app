@@ -34,10 +34,7 @@ class EventEngineService {
           this.initEvents(jsonData);
           this.io.on('connection', (socket) => {
             this.socket = socket;
-            console.log('Socket connection established');
-            this.socket.on('disconnect', () => {
-              console.log('Socket disconnected');
-            });
+            this.socket.on('disconnect', () => {});
             res();
           });
         })

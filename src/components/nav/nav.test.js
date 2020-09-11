@@ -2,7 +2,7 @@ import React from 'react';
 import { render, act } from '@testing-library/react';
 import Event from '../../models/event.model';
 import Nav from './nav.component';
-import EventEngine from '../../libs/__mocks__/event.engine';
+import EventEngine from '../../libs/__mocks__/event-engine.lib';
 import { basicMock } from '../../api/test/events.mock';
 const eventEngine = new EventEngine();
 

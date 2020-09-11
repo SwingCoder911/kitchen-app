@@ -19,5 +19,5 @@ app.use(bodyParser.json());
 app.use('/api/events', EventRoutes);
 app.use('/api/events-engine', EventsEngineRoutes);
 server.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Kitchen app listening at http://localhost:${port}`);
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import className from 'classnames';
 import { configMap } from '../../engine.config';
-import './controlPanel.scss';
+import './control-panel.scss';
 
 /**
  * Component: ControlPanel

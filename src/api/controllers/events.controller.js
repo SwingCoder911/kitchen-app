@@ -3,9 +3,7 @@ const EventsService = require('../services/events.service');
 const eventsService = new EventsService();
 eventsService
   .init()
-  .then(() => {
-    console.log('Successfully started EventEervice');
-  })
+  .then(() => {})
   .catch((error) => {
     console.log('Failed to launch eventService: ', error);
   });

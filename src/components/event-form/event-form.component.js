@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import {
   eventNameConfig,
   defaultEventForm,
-} from '../../libs/componentResources';
-import './eventForm.scss';
+} from '../../libs/component-resources.lib';
+import './event-form.scss';
 
 /**
  * Component: EventForm

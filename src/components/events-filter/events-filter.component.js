@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import className from 'classnames';
-import { eventNameConfig } from '../../libs/componentResources';
-import './eventsFilter.scss';
+import { eventNameConfig } from '../../libs/component-resources.lib';
+import './events-filter.scss';
 
 /**
  * Component: EventsFilter

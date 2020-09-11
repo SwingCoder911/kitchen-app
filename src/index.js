@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.scss';
 import App from './components/app/app.component';
-import EventEngine from './libs/event.engine';
+import EventEngine from './libs/event-engine.lib';
 
 const eventEngine = new EventEngine();
 eventEngine.init();

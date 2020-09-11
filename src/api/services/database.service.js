@@ -21,7 +21,6 @@ class DatabaseService {
         .then((client) => {
           const db = client.db(process.env.MONGO_DB_NAME);
           this.collection = db.collection('events');
-          console.log('Success fully connected to mongo!');
           res();
         })
         .catch((error) => {

@@ -1,5 +1,5 @@
 import Event from '../models/event.model';
-import API from './api';
+import API from './api.lib';
 const SocketIO = window.io || null;
 
 /**
